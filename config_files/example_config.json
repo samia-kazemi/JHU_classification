@@ -1,0 +1,14 @@
+{
+    "exp_name": "MosClassification_exp",
+    "mode": "Train",
+    "data_dir": "vectorcam_data",
+    "data_subfolders": ["0610", "0618", "0623", "kenya_01"],
+    "batch_size": 14,
+    "num_workers": 0,
+    "model_name": "ResNet18",
+    "model_kwargs": {"num_classes": 3},
+    "whitebalance": true,
+    "learning_rate": 0.001,
+    "max_epochs": 10,
+    "image_size": 448
+}
