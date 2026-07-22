@@ -43,6 +43,5 @@ def save_cm(cm, labels, save_dir):
     plt.ylabel('Actual')
     plt.title('Confusion Matrix')
 
-    # 4. Save the image to disk
     plt.savefig(save_dir /'confusion_matrix.png', dpi=300, bbox_inches='tight')
     plt.close()
