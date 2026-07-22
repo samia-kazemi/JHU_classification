@@ -34,6 +34,8 @@ def Test(config_file):
     # Get model
     model_name_to_class = {"ResNet18": ResNet18}
     model = model_name_to_class[config["model_name"]](**config["model_kwargs"])
+    # Load model parameters
+    model.load_state_dict(torch.load(Path("experiments") / config["exp_name"] / "best_loss.pth"))
     model.to(device)
 
     # Get loss

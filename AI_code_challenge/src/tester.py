@@ -3,6 +3,7 @@ import torch
 from tqdm import tqdm
 import numpy as np
 from sklearn.metrics import confusion_matrix, accuracy_score
+from AI_code_challenge.src.utils import save_cm
 
 class Tester(nn.Module):
     def __init__(self, model, loss_fn, device, exp_dir, species_names):
@@ -34,7 +35,9 @@ class Tester(nn.Module):
         preds = np.concatenate(preds, axis = 0)
         preds = np.argmax(preds, axis = -1)
         acc = accuracy_score(y, preds)
-        #cm = confusion_matrix(y, preds, labels = self.species_names, normalize = 'true')
         cm = confusion_matrix(y, preds, normalize = 'true')
+        
+        # Save confusion matrix to experiment folder
+        save_cm(cm, self.species_names, self.exp_dir)
 
         return (test_loss, y, preds, acc, cm)

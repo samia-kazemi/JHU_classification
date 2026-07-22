@@ -97,7 +97,7 @@ class MosDataset(Dataset):
         self.images_df['y'] = self.images_df['y'].astype(int)
 
         # Add split column
-        self.images_df = add_data_split(self.images_df, ratio = [0.7, 0.15, 0.15])
+        self.images_df = add_data_split(self.images_df, target_ratio = [0.7, 0.15, 0.15])
 
         # Save combined datasheet to experiment folder
         self.images_df.to_csv(self.exp_folder / 'existing_data.csv', index=False)
